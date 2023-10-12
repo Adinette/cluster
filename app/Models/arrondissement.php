@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class arrondissement extends Model
 {
     use HasFactory;
+    public function clusters()
+    {
+        return $this->hasMany(Cluster::class, 'id_arrondissement');
+    }
 }

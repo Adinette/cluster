@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="./css/app.css">
     {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> --}}
 
+
     <title>Formulaire</title>
 </head>
 
 <body>
     <form action="{{route('index.store')}}" method="POST" style="margin: 2rem 1rem">
         @csrf
-        <h1 style="text-align: center">SAISIE DES cluters</h1>
+        <h1 style="text-align: center">FORMULAIRE DES CLUSTERS</h1>
         <div>
             <label for="">Filière </label>
             <select name="id_filiere" required style="margin-left: 6.5rem; box-shadow:none; height:35px;">
@@ -78,7 +79,7 @@
         background-color: #ECF0F5;
     }
 
-    /* table,
+    table,
             td,
             thead {
                 border-collapse: collapse;
@@ -90,7 +91,10 @@
                 font-weight: bold;
                 padding: 30px;
 
-            } */
+            }
 </style>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
 
 </html>

@@ -25,6 +25,13 @@ class clusterController extends Controller
     // Enregistrer la validation du formulaire dans la base de donnée
     public function store(Request $_request)
     {
+        $departement = Departement::all();
+        $commune = Commune::all(); // Récupérez toutes les œuvres
+        // $clusters = Cluster::all();
+        $clusters = Cluster::with('departement', 'commune', 'arrondissement')->get();
+
+        $arrondissement = Arrondissement::all();
+
         $id_filiere = $_request->input('id_filiere');
         $nom_departement = $_request->input('nom_departement');
         $nom_commune = $_request->input('nom_commune');
@@ -37,12 +44,12 @@ class clusterController extends Controller
         $cluster->id_filiere = $id_filiere;
         $cluster->id_villages = $id_villages;
         $cluster->nom_cluster = $nom_cluster;
-
-        // $cluster->nom_departement = $nom_departement;
-        // $cluster->nom_commune = $nom_commune;
-        // $cluster->nom_arrondissement = $nom_arrondissement;
-
+ 
         $cluster->save();
-        return ('Enregistrement effectuée avec succès');
+        $clusters = Cluster::orderBy('nom_cluster')->get();
+
+        return view('liste',compact('departement', 'commune', 'clusters', 'arrondissement'));
     }
+
+   
 }

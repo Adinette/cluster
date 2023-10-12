@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 Route::get('/index',[clusterController::class,'index'])->name('index');
 Route::post('/index/store',[clusterController::class,'store'])->name('index.store');
+Route::get('/recuperer-communes', [clusterController::class, 'recupererCommunes']);
