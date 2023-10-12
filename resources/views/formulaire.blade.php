@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,51 +10,52 @@
 
     <title>Formulaire</title>
 </head>
+
 <body>
     <form action="{{route('index.store')}}" method="POST" style="margin: 2rem 1rem">
         @csrf
         <h1 style="text-align: center">SAISIE DES cluters</h1>
         <div>
             <label for="">Filière </label>
-            <select name="nom_filiere" required style="margin-left: 6.5rem; box-shadow:none; height:35px;">
+            <select name="id_filiere" required style="margin-left: 6.5rem; box-shadow:none; height:35px;">
                 @foreach($filieres as $filiere)
-                    <option value="{{$filiere->id_filiere}}"> {{$filiere->nom_filiere}}</option>
+                <option value="{{$filiere->id}}"> {{$filiere->nom_filiere}}</option>
                 @endforeach
             </select>
         </div>
-       <div style="display: flex">
-        <div style="margin: 1rem 0rem">
-            <label for="">Departement </label>
-            <select name="nom_departement" required style="margin-left: 6.5rem; box-shadow:none; height:35px;">
-                @foreach($departements as $departement)
-                    <option value="{{$departement->id_departement}}"> {{$departement->nom_departement}}</option>
-                @endforeach
-            </select>
+        <div style="display: flex">
+            <div style="margin: 1rem 0rem">
+                <label for="">Departement </label>
+                <select name="id_departement" required style="margin-left: 6.5rem; box-shadow:none; height:35px;">
+                    @foreach($departements as $departement)
+                    <option value="{{$departement->id}}"> {{$departement->nom_departement}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div>
+                <label for="">Commune </label>
+                <select name="id_commune" required style="margin-left: 6.5rem; box-shadow:none; height:35px;">
+                    @foreach($communes as $commune)
+                    <option value="{{$commune->id}}"> {{$commune->nom_commune}}</option>
+                    @endforeach
+                </select>
+            </div>
         </div>
-        <div>
-            <label for="">Commune </label>
-            <select name="nom_commune" required style="margin-left: 6.5rem; box-shadow:none; height:35px;">
-                @foreach($communes as $commune)
-                    <option value="{{$commune->id_commune}}"> {{$commune->nom_commune}}</option>
-                @endforeach
-            </select>
-        </div>
-       </div>
         <div style="display: flex">
             <div style="margin: 1rem 0rem">
                 <label for="">Arrondissement </label>
-                <select name="nom_arrondissement" required style="margin-left: 6.5rem; box-shadow:none; height:35px;">
+                <select name="id_arrondissement" required style="margin-left: 6.5rem; box-shadow:none; height:35px;">
                     @foreach($arrondissements as $arrondissement)
-                        <option value="{{$arrondissement->id_arrondissement}}"> {{$arrondissement->nom_arrondissement}}</option>
+                    <option value="{{$arrondissement->id}}"> {{$arrondissement->nom_arrondissement}}</option>
                     @endforeach
                 </select>
             </div>
 
             <div style="margin: 1rem 0rem">
                 <label for="">Village </label>
-                <select name="nom_village" required style="margin-left: 6.5rem; box-shadow:none; height:35px;">
+                <select name="id_village" required style="margin-left: 6.5rem; box-shadow:none; height:35px;">
                     @foreach($villages as $village)
-                        <option value="{{$village->id_villages}}"> {{$village->nom_village}}</option>
+                    <option value="{{$village->id}}"> {{$village->nom_village}}</option>
                     @endforeach
                 </select>
             </div>
@@ -68,14 +70,15 @@
         </div>
     </form>
 </body>
-</html>
+
 <style>
-    body{
-    font-size: 12px;
-    font-family: Arial;
-    background-color: #ECF0F5;
-} n
-/* table,
+    body {
+        font-size: 12px;
+        font-family: Arial;
+        background-color: #ECF0F5;
+    }
+
+    /* table,
             td,
             thead {
                 border-collapse: collapse;
@@ -89,3 +92,5 @@
 
             } */
 </style>
+
+</html>
