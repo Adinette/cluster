@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class filiere extends Model
 {
     use HasFactory;
+
+    public function  clusters()
+    {
+        return $this->hasMany(cluster::class);
+    }
 }

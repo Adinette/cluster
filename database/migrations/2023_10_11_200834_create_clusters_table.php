@@ -14,10 +14,8 @@ return new class extends Migration
         Schema::create('clusters', function (Blueprint $table) {
             $table->id();
             $table->string('nom_cluster');
-            $table->unsignedBigInteger('id_filiere');
-            $table->foreign('id_filiere')->references('id')->on('filieres');
-            $table->unsignedBigInteger('id_villages');
-            $table->foreign('id_villages')->references('id')->on('villages');
+            $table->foreignId('filiere_id')->constrained();
+            $table->foreignId('village_id')->constrained();
             $table->timestamps();
         });
     }

@@ -27,8 +27,6 @@ class clusterController extends Controller
     {
         $departement = Departement::all();
         $commune = Commune::all(); // Récupérez toutes les œuvres
-        // $clusters = Cluster::all();
-        $clusters = Cluster::with('departement', 'commune', 'arrondissement')->get();
 
         $arrondissement = Arrondissement::all();
 
@@ -41,15 +39,18 @@ class clusterController extends Controller
 
         $cluster = new cluster();
 
-        $cluster->id_filiere = $id_filiere;
-        $cluster->id_villages = $id_villages;
+        $cluster->filiere_id = $id_filiere;
+        $cluster->village_id = $id_villages;
         $cluster->nom_cluster = $nom_cluster;
- 
-        $cluster->save();
-        $clusters = Cluster::orderBy('nom_cluster')->get();
 
-        return view('liste',compact('departement', 'commune', 'clusters', 'arrondissement'));
+        $cluster->save();
+        $clusters = Cluster::with(['filiere', 'village.arrondissement.commune.departement'])->orderBy('nom_cluster')->get();
+        return view('liste', compact('departement', 'commune', 'clusters', 'arrondissement'));
     }
 
-   
+    public function recupererCommunes()
+    {
+        $clusters = Cluster::with(['filiere', 'village.arrondissement.commune.departement'])->orderBy('nom_cluster')->get();
+        dd($clusters);
+    }
 }

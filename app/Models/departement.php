@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class departement extends Model
 {
     use HasFactory;
-    public function clusters()
+
+    public function communes()
     {
-        return $this->hasMany(Cluster::class, 'id_departement');
+        return $this->hasMany(commune::class);
     }
 }

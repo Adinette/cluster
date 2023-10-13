@@ -1,17 +1,17 @@
 <style>
     table,
-            td,
-            thead {
-                border-collapse: collapse;
-                border: 1px solid #000;
-                margin: 20px auto;
-            }
+    td,
+    thead {
+        border-collapse: collapse;
+        border: 1px solid #000;
+        margin: 20px auto;
+    }
 
-            td {
-                font-weight: bold;
-                padding: 30px;
+    td {
+        font-weight: bold;
+        padding: 30px;
 
-            }
+    }
 </style>
 
 <main>
@@ -33,16 +33,15 @@
 
             @foreach($clusters as $cluster)
 
-                <tr>
-                    <td>{{ $cluster->id_filiere }}</td>
-            <td>{{ optional($cluster->departement)->id_departement }}</td>
-            <td>{{ optional($cluster->commune)->id }}</td>
-            <td>{{ optional($cluster->village->arrondissement)->id }}</td>
-                    <td>{{ $cluster->id_villages }}</td>
-                    <td>{{ $cluster->nom_cluster }}</td>
-                </tr>
+            <tr>
+                <td>{{ $cluster?->filiere?->nom_filiere }}</td>
+                <td>{{ $cluster?->village->arrondissement?->commune?->departement?->nom_departement }}</td>
+                <td>{{ $cluster?->village->arrondissement?->commune?->nom_commune }}</td>
+                <td>{{ $cluster?->village?->arrondissement?->nom_arrondissement }}</td>
+                <td>{{ $cluster?->village?->nom_village }}</td>
+                <td>{{ $cluster->nom_cluster }}</td>
+            </tr>
             @endforeach
         </tbody>
     </table>
 </main>
-

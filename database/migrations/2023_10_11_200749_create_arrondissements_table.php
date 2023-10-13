@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('arrondissements', function (Blueprint $table) {
             $table->id();
             $table->string('nom_arrondissement');
-            $table->unsignedBigInteger('id_commune');
-            $table->foreign('id_commune')->references('id')->on('communes');
+            $table->foreignId('commune_id')->constrained();
             $table->timestamps();
         });
     }

@@ -59,55 +59,55 @@ class DatabaseSeeder extends Seeder
 
         commune::create([
             'nom_commune' => 'Cotonou',
-            'id_departement' => 1,
+            'departement_id' => 1,
         ]);
         commune::create([
             'nom_commune' => 'Lokossa',
-            'id_departement' => 2,
+            'departement_id' => 2,
         ]);
         commune::create([
             'nom_commune' => 'Ouidah',
-            'id_departement' => 3,
+            'departement_id' => 3,
         ]);
         commune::create([
             'nom_commune' => 'Bohicon',
-            'id_departement' => '4',
+            'departement_id' => '4',
         ]);
 
 
 
         arrondissement::create([
             'nom_arrondissement' => '1er',
-            'id_commune' => 1,
+            'commune_id' => 1,
         ]);
         arrondissement::create([
             'nom_arrondissement' => '2eme',
-            'id_commune' => 2,
+            'commune_id' => 2,
         ]);
         arrondissement::create([
             'nom_arrondissement' => '3eme',
-            'id_commune' => 3,
+            'commune_id' => 3,
         ]);
         arrondissement::create([
             'nom_arrondissement' => '4eme',
-            'id_commune' => 4,
+            'commune_id' => 4,
         ]);
 
         village::create([
             'nom_village' => 'Glo',
-            'id_arrondissement' => 1,
+            'arrondissement_id' => 1,
         ]);
         village::create([
             'nom_village' => 'Adja',
-            'id_arrondissement' => 2,
+            'arrondissement_id' => 2,
         ]);
         village::create([
             'nom_village' => 'Come',
-            'id_arrondissement' => 3,
+            'arrondissement_id' => 3,
         ]);
         village::create([
             'nom_village' => 'Calavi',
-            'id_arrondissement' => 4,
+            'arrondissement_id' => 4,
         ]);
     }
 }
